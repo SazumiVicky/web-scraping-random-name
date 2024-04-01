@@ -47,8 +47,14 @@ const scrapeRandomNames = async () => {
 
     const names = [];
     $('.Rand-stage .rand_large').each((index, element) => {
-        const name = $(element).text().trim();
-        names.push({ [`name_${index + 1}`]: name });
+        const fullName = $(element).text().trim();
+        const [firstName, lastName] = fullName.split(' ');
+        names.push({ 
+            [`name_${index + 1}`]: { 
+                "First Name": firstName, 
+                "Last Name": lastName 
+            } 
+        });
     });
 
     return names;
