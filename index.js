@@ -33,7 +33,9 @@ const scrapeRandomNames = async () => {
     const button = await browser.$('.button[data-action="rerun"]');
     await button.scrollIntoView();
 
-    await button.click();
+    await browser.execute(() => {
+        document.querySelector('.button[data-action="rerun"]').click();
+    });
 
     await browser.pause(2000);
 
