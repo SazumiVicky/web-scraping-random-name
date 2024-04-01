@@ -38,10 +38,16 @@ curl http://localhost:3000/get/names/random
 ```json
 [
   {
-    "name_1": "John Doe"
+    "name_1": {
+      "First Name": "Clara",
+      "Last Name": "Middleton"
+    }
   },
   {
-    "name_2": "Jane Smith"
+    "name_2": {
+      "First Name": "Phillip",
+      "Last Name": "Gutierrez"
+    }
   },
   ...
 ]
