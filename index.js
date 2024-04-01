@@ -26,11 +26,14 @@ const scrapeRandomNames = async () => {
     await browser.url('https://www.randomlists.com/random-names');
 
     await browser.waitUntil(async () => {
-        const button = await browser.$('.button[data-action="rerun"]');
-        return button.isDisplayed();
+        const overlay = await browser.$('.overlay-class');
+        return !(await overlay.isDisplayed());
     });
 
-    await browser.$('.button[data-action="rerun"]').click();
+    const button = await browser.$('.button[data-action="rerun"]');
+    await button.scrollIntoView();
+
+    await button.click();
 
     await browser.pause(2000);
 
